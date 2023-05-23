@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/signup")
-public class SignController {
+public class SignUpController {
 
     private final UserService userService;
 
@@ -25,7 +25,6 @@ public class SignController {
     @PostMapping
     public String signup(@ModelAttribute UserRegisterDto userDto) {
         userService.signup(userDto.getUsername(), userDto.getPassword());
-
         //로그인 페이지로 이동한다.
         return "redirect:login";
     }
